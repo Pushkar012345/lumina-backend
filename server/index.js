@@ -114,5 +114,10 @@ app.delete('/api/history/:id', async (req, res) => {
     }
 });
 
+// This handles the request to the base URL (https://your-app.onrender.com/)
+app.get('/', (req, res) => {
+  res.status(200).send('🚀 Lumina AI Backend is Live and Running!');
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Secure Server on http://localhost:${PORT}`));
