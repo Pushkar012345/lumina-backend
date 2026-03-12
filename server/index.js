@@ -18,7 +18,7 @@ app.use(express.json());
 
 // 3. RESTRICTED CORS
 // Replace 'http://localhost:5173' with your Vercel URL after deployment
-const allowedOrigins = ['http://localhost:5173']; 
+const allowedOrigins = ['http://localhost:5173',"https://your-app-name.vercel.app"]; 
 app.use(cors({
     origin: (origin, callback) => {
         if (!origin || allowedOrigins.includes(origin)) {

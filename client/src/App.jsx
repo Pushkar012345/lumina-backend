@@ -79,7 +79,7 @@ function App() {
     setQuizResults({});
     setIsSidebarOpen(false);
     try {
-      const res = await axios.post('http://localhost:5000/api/generate', { topic, userId: user.id });
+      const res = await axios.post('https://lumina-backend-4zad.onrender.com/api/generate', { topic, userId: user.id });
       setData(res.data);
       fetchHistory();
     } catch (err) { 
