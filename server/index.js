@@ -18,17 +18,16 @@ app.use(express.json());
 
 // 3. RESTRICTED CORS
 // Replace 'http://localhost:5173' with your Vercel URL after deployment
-const allowedOrigins = ['http://localhost:5173',"https://your-app-name.vercel.app"]; 
+const allowedOrigins = ['http://localhost:5173',"https://lumina-frontend-ten.vercel.app"]; 
 app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS security policy'));
-        }
-    },
-    credentials: true
+  origin: "https://lumina-frontend-ten.vercel.app", // Your exact frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
 }));
+
+// Add this right below your cors middleware to handle "Preflight" requests
+app.options('*', cors());
 
 // 4. RATE LIMITING
 // Limits users to 50 requests every 15 minutes to protect your API costs
