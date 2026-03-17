@@ -49,7 +49,7 @@ function App() {
   const fetchHistory = async () => {
     if (!user) return;
     try {
-      const res = await axios.get(`http://localhost:5000/api/history?userId=${user.id}`);
+      const res = await axios.get(`https://lumina-backend-4zad.onrender.com/api/history?userId=${user.id}`); 
       setHistory(res.data);
     } catch (err) { console.error("History fetch error:", err); }
   };
@@ -58,7 +58,7 @@ function App() {
     e.stopPropagation();
     if (!window.confirm("Are you sure you want to delete this study session?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/history/${id}`);
+      await axios.delete(`https://lumina-backend-4zad.onrender.com/api/history/${id}`); // ✅ Live URL
       if (data?._id === id) setData(null);
       fetchHistory();
     } catch (err) {

@@ -12,12 +12,6 @@ const app = express();
 // 1. DATABASE CONNECTION
 connectDB();
 
-// 2. SECURITY MIDDLEWARE
-app.use(helmet()); // Sets secure HTTP headers
-app.use(express.json());
-
-// 3. RESTRICTED CORS
-// Replace 'http://localhost:5173' with your Vercel URL after deployment
 const allowedOrigins = ['http://localhost:5173',"https://lumina-frontend-ten.vercel.app"]; 
 app.use(cors({
   origin: "https://lumina-frontend-ten.vercel.app", // Your exact frontend URL
@@ -28,6 +22,16 @@ app.use(cors({
 
 // Add this right below your cors middleware to handle "Preflight" requests
 app.options('*', cors());
+
+// 2. SECURITY MIDDLEWARE
+app.use(helmet()({
+  crossOriginResourcePolicy: { policy: "cross-origin" }
+}));; // Sets secure HTTP headers
+app.use(express.json());
+
+// 3. RESTRICTED CORS
+// Replace 'http://localhost:5173' with your Vercel URL after deployment
+
 
 // 4. RATE LIMITING
 // Limits users to 50 requests every 15 minutes to protect your API costs
