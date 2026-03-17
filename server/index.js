@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const helmet = require('helmet'); // Security: Protection against XSS/Clickjacking
-const rateLimit = require('express-rate-limit'); // Security: Prevent API spam
+const helmet = require('helmet'); 
+const rateLimit = require('express-rate-limit'); 
 const OpenAI = require('openai');
 const connectDB = require('./config/db');
 const StudyGuide = require('./models/StudyGuide');
@@ -12,29 +12,24 @@ const app = express();
 // 1. DATABASE CONNECTION
 connectDB();
 
-const allowedOrigins = ['http://localhost:5173',"https://lumina-frontend-ten.vercel.app"]; 
+// 2. CORS CONFIGURATION (Must be at the very top)
 app.use(cors({
-  origin: "https://lumina-frontend-ten.vercel.app", // Your exact frontend URL
+  origin: "https://lumina-frontend-ten.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 
-// Add this right below your cors middleware to handle "Preflight" requests
+// Handle Preflight requests globally
 app.options('*', cors());
 
-// 2. SECURITY MIDDLEWARE
-app.use(helmet()({
-  crossOriginResourcePolicy: { policy: "cross-origin" }
-}));; // Sets secure HTTP headers
+// 3. SECURITY & PARSING MIDDLEWARE
+app.use(helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
 app.use(express.json());
 
-// 3. RESTRICTED CORS
-// Replace 'http://localhost:5173' with your Vercel URL after deployment
-
-
 // 4. RATE LIMITING
-// Limits users to 50 requests every 15 minutes to protect your API costs
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, 
     max: 50, 
@@ -49,11 +44,17 @@ const openai = new OpenAI({
     baseURL: "https://api.groq.com/openai/v1"
 });
 
-// 6. THE MAIN AI ROUTE (Limited to prevent abuse)
+// 6. ROUTES
+
+// Root Route
+app.get('/', (req, res) => {
+  res.status(200).send('🚀 Lumina AI Backend is Live and Running!');
+});
+
+// Generate AI Content
 app.post('/api/generate', limiter, async (req, res) => {
     const { topic, userId } = req.body;
     
-    // Simple Input Sanitization
     if (!userId) return res.status(400).json({ error: "User ID is required" });
     const cleanTopic = topic?.toString().trim().substring(0, 100);
 
@@ -85,12 +86,12 @@ app.post('/api/generate', limiter, async (req, res) => {
         await newGuide.save();
         res.status(200).json(newGuide);
     } catch (error) {
-        console.error("Security/AI Error:", error.message);
+        console.error("AI Generation Error:", error.message);
         res.status(500).json({ error: "AI Generation Failed" });
     }
 });
 
-// 7. GET HISTORY
+// Get History
 app.get('/api/history', async (req, res) => {
     try {
         const { userId } = req.query;
@@ -106,7 +107,7 @@ app.get('/api/history', async (req, res) => {
     }
 });
 
-// 8. DELETE HISTORY
+// Delete History
 app.delete('/api/history/:id', async (req, res) => {
     try {
         const deletedGuide = await StudyGuide.findByIdAndDelete(req.params.id);
@@ -117,10 +118,8 @@ app.delete('/api/history/:id', async (req, res) => {
     }
 });
 
-// This handles the request to the base URL (https://your-app.onrender.com/)
-app.get('/', (req, res) => {
-  res.status(200).send('🚀 Lumina AI Backend is Live and Running!');
-});
-
+// 7. START SERVER
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Secure Server on http://localhost:${PORT}`));
+app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+});
