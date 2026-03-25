@@ -12,7 +12,6 @@ const app = express();
 // 1. DATABASE CONNECTION
 connectDB();
 
-// 2. CORS CONFIGURATION (Must be at the very top)
 // 2. CORS CONFIGURATION
 app.use(cors({
   origin: "https://lumina-frontend-ten.vercel.app",
@@ -21,14 +20,8 @@ app.use(cors({
   credentials: true
 }));
 
-// UPDATED LINE: Added parentheses to fix the PathError
+// UPDATED LINE: Added parentheses to fix the Render/PathError
 app.options('(.*)', cors()); 
-
-// 3. SECURITY & PARSING MIDDLEWARE
-app.use(helmet({
-    crossOriginResourcePolicy: { policy: "cross-origin" }
-}));
-app.use(express.json());
 
 // 3. SECURITY & PARSING MIDDLEWARE
 app.use(helmet({
