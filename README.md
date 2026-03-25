@@ -1,8 +1,4 @@
-﻿# lumina-backend
-Perfect! Let’s make a **GitHub-ready README** that is **snappy, visual, and professional**, with badges and clear sections. This will immediately catch attention.
-
----
-
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1bd2bb9b-586f-4ffc-a767-14f0f8c6664b" />
 # 🚀 Lumina AI – AI Study Assistant
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/Pushkar012345/lumina-backend)
@@ -11,7 +7,7 @@ Perfect! Let’s make a **GitHub-ready README** that is **snappy, visual, and pr
 
 **Lumina AI** is a **full-stack AI-powered study assistant** that instantly generates **summaries, flashcards, and quizzes** for any topic.
 
-**Live Demo:** [Frontend](https://your-frontend-link.vercel.app) | **Backend API:** [API](https://your-backend-link.onrender.com)
+**Live Demo:** [Frontend](https://lumina-frontend-ten.vercel.app/) 
 
 ---
 
@@ -63,30 +59,23 @@ PORT=5000
 
 ---
 
-## 🔮 Future Improvements
-
-* 🔐 User authentication (JWT / OAuth)
-* 📊 Personalized learning dashboard
-* 📄 Export notes as PDF
-* 🧠 Adaptive quizzes based on performance
-
----
-
 ## 👨‍💻 Author
 
 **Pushkar Pawar**
-[GitHub](https://github.com/Pushkar012345) | [LinkedIn](https://www.linkedin.com/in/your-linkedin/)
+[GitHub](https://github.com/Pushkar012345) | [LinkedIn]()
 
 ---
 
-✅ **Tips:**
+✅ **screenshots:**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/590e0d6f-b55e-4087-b1dd-5307dd76e74f" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c5442bd8-8706-4c4c-9ab6-2583c998cdca" />
 
-* Add **screenshots** of frontend and quiz results at the top for visual impact.
-* Pin this repo on GitHub for recruiters.
-* Use badges for stars, issues, or license to make it look professional.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b8ebe18b-6683-4f16-95b6-3ff4f660dde3" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9d7d1087-86b6-449b-80bb-bb1f0877a778" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fcbf3eb4-f4cf-4f92-b96f-38d82c8e2c50" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d65b2efe-8f43-46a8-bc3d-23f88e6f31ee" />
 
----
 
-If you want, I can **make an even “eye-catching” version with images & GIFs of your live app** that will make your GitHub page look like a product landing page — recruiters love that.
 
-Do you want me to make that version next?
+
+
