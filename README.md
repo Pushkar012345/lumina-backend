@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1bd2bb9b-586f-4ffc-a767-14f0f8c6664b" />
+
 # 🚀 Lumina AI – AI Study Assistant
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/Pushkar012345/lumina-backend)
@@ -67,6 +67,8 @@ PORT=5000
 ---
 
 ✅ **screenshots:**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1bd2bb9b-586f-4ffc-a767-14f0f8c6664b" />
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/590e0d6f-b55e-4087-b1dd-5307dd76e74f" />
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c5442bd8-8706-4c4c-9ab6-2583c998cdca" />
 
