@@ -8,7 +8,7 @@
 **Lumina AI** is a **full-stack AI-powered study assistant** that instantly generates **summaries, flashcards, and quizzes** for any topic.
 
 **Live Demo:** [Frontend](https://lumina-frontend-ten.vercel.app/) 
-
+**Frontend Repo link** https://github.com/Pushkar012345/lumina-frontend
 ---
 
 ## ✨ Features
